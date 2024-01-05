@@ -1,13 +1,15 @@
 terraform {
   required_providers {
     google = {
-      source = "hashicorp/google"
+      source  = "hashicorp/google"
       version = "5.10.0"
     }
   }
+}
 
 provider "google" {
-  credentials = file("<path-to-your-service-account-key-file>.json")  # Path to your GCP service account key JSON file
-  project     = "vaulted-circle-404807 " 
-  region      = "us-central1"      
+  # alias       = "my_provider"
+  credentials = file("./keys.json")
+  project     = "terraform-gcp-410313"
+  region      = "us-central1"
 }
