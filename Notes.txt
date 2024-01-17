@@ -1,0 +1,38 @@
+1. Google Compute Instance (VM):
+   - Creates a VM named "my-instance" in zone "us-central1-a".
+   - Uses machine type "n1-standard-1".
+   - Boot disk initialized with Debian 11 image and custom labels.
+
+2. Google Compute Network:
+   - Establishes a custom VPC named "my-vpc".
+
+3. Google Compute Subnetwork:
+   - Creates a subnetwork "my-subnet" with CIDR "10.0.1.0/24".
+   - Associated with the custom VPC created earlier.
+
+4. Firewall Rules:
+   - Ingress Rule ("allow-ingress"):
+     - Allows incoming TCP traffic on ports 22, 80, and 443.
+     - Applied to the specified VPC.
+
+   - Egress Rule ("allow-egress"):
+     - Allows all outbound traffic.
+     - Applied to the specified VPC.
+
+5. Note on Security:
+   - Ingress rules allow traffic from any source (0.0.0.0/0).
+   - Review and adjust security settings based on specific needs.
+
+6. Priority in Firewall Rules:
+   - Lower priority numbers (e.g., 1000) have higher precedence.
+   - Rules are evaluated in ascending order of priority.
+
+7. Execution Plan:
+   - Terraform plan indicates 4 resources to be added.
+
+8. Apply Changes:
+   - Running `terraform apply` will create the specified resources.
+   - Confirm changes by typing 'yes' when prompted.
+
+9. Clean-Up:
+   - Consider using `terraform destroy` to remove created resources when necessary.
